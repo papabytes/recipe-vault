@@ -6,6 +6,6 @@ public interface ICookingStepRepository
 {
     Task<IEnumerable<CookingStep>> GetCookingStepsByRecipeAsync(Guid recipeId);
     Task<CookingStep> CreateCookingStepAsync(CookingStep cookingStep);
-    Task<CookingStep> UpdateCookingStepAsync(CookingStep cookingStep);
+    Task<CookingStep?> UpdateCookingStepAsync(Guid id, CookingStep cookingStep);
     Task DeleteCookingStepAsync(Guid id);
 }

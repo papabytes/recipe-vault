@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.HttpOverrides;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +18,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// To serve under a reverse proxy
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 app.UseHttpsRedirection();
+
+// TODO improve security here.
+app.UseCors(opts =>
+{
+    opts.AllowAnyHeader();
+    opts.AllowAnyMethod();
+    opts.AllowAnyOrigin();
+});
 
 app.UseAuthorization();
 

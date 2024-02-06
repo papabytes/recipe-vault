@@ -23,15 +23,34 @@ public class CookingStepPostgresRepository : ICookingStepRepository
     public async Task<CookingStep> CreateCookingStepAsync(CookingStep cookingStep)
     {
         var addResult = await _set.AddAsync(cookingStep);
+        await _context.SaveChangesAsync();
+        return addResult.Entity;
     }
 
-    public Task<CookingStep> UpdateCookingStepAsync(CookingStep cookingStep)
+    public async Task<CookingStep?> UpdateCookingStepAsync(Guid id, CookingStep cookingStep)
     {
-        throw new NotImplementedException();
+        var cookingStepToUpdate = await _set.FindAsync(id);
+        if (cookingStepToUpdate == null)
+        {
+            return cookingStepToUpdate;
+        }
+
+        cookingStepToUpdate.Order = cookingStep.Order;
+        cookingStepToUpdate.Description = cookingStep.Description;
+
+        await _context.SaveChangesAsync();
+        return cookingStepToUpdate;
     }
 
-    public Task DeleteCookingStepAsync(Guid id)
+    public async Task DeleteCookingStepAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var cookingStepToDelete = await _set.FindAsync(id);
+        if (cookingStepToDelete == null)
+        {
+            return;
+        }
+
+        _set.Remove(cookingStepToDelete);
+        await _context.SaveChangesAsync();
     }
 }

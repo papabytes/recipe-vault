@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papabytes.Portfolio.RecipeVault.Domain", "Papabytes.Portfolio.RecipeVault.Domain\Papabytes.Portfolio.RecipeVault.Domain.csproj", "{171D94AA-3E3A-49A8-83B9-4D2E2F572AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papabytes.Portfolio.RecipeVault.Infrastructure", "Papabytes.Portfolio.RecipeVault.Infrastructure\Papabytes.Portfolio.RecipeVault.Infrastructure.csproj", "{F9290187-09DB-4FA2-9FBA-1F004D35D2F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papabytes.Portfolio.RecipeVault.Application", "Papabytes.Portfolio.RecipeVault.Application\Papabytes.Portfolio.RecipeVault.Application.csproj", "{322E440A-1DD8-4D8C-95CB-D18D5EC0819B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papabytes.Portfolio.RecipeVault.API", "Papabytes.Portfolio.RecipeVault.API\Papabytes.Portfolio.RecipeVault.API.csproj", "{585DA681-9140-4657-965F-31133EC33F04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papabytes.Portfolio.RecipeVault.Tests", "Papabytes.Portfolio.RecipeVault.Tests\Papabytes.Portfolio.RecipeVault.Tests.csproj", "{F49E2C19-C758-4CFD-A2B5-AE52E9AA50C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{171D94AA-3E3A-49A8-83B9-4D2E2F572AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171D94AA-3E3A-49A8-83B9-4D2E2F572AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171D94AA-3E3A-49A8-83B9-4D2E2F572AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171D94AA-3E3A-49A8-83B9-4D2E2F572AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9290187-09DB-4FA2-9FBA-1F004D35D2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9290187-09DB-4FA2-9FBA-1F004D35D2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9290187-09DB-4FA2-9FBA-1F004D35D2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9290187-09DB-4FA2-9FBA-1F004D35D2F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322E440A-1DD8-4D8C-95CB-D18D5EC0819B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322E440A-1DD8-4D8C-95CB-D18D5EC0819B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322E440A-1DD8-4D8C-95CB-D18D5EC0819B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322E440A-1DD8-4D8C-95CB-D18D5EC0819B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585DA681-9140-4657-965F-31133EC33F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585DA681-9140-4657-965F-31133EC33F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585DA681-9140-4657-965F-31133EC33F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585DA681-9140-4657-965F-31133EC33F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49E2C19-C758-4CFD-A2B5-AE52E9AA50C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49E2C19-C758-4CFD-A2B5-AE52E9AA50C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49E2C19-C758-4CFD-A2B5-AE52E9AA50C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49E2C19-C758-4CFD-A2B5-AE52E9AA50C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

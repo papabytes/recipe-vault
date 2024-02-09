@@ -8,4 +8,9 @@ public class GetRecipeByIdRequest : IRequest<RecipeDto?>
 {
     [JsonProperty("id")]
     public Guid Id { get; set; }
+
+    public GetRecipeByIdRequest(Guid id)
+    {
+        Id = id;
+    }
 }

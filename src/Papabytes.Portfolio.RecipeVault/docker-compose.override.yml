@@ -1,0 +1,7 @@
+﻿version: '3.9'
+services:
+  recipe_vault_api:
+   environment:
+     - ASPNETCORE_URLS=http://*:80/
+     - POSTGRES_CONNECTION_STRING=postgresql://postgres:example@postgres
+    

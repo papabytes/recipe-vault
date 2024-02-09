@@ -16,8 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Recipes\Create\" />
-      <Folder Include="Recipes\GetBySearch\" />
       <Folder Include="Recipes\GetIngredients\" />
       <Folder Include="Recipes\GetSteps\" />
       <Folder Include="Recipes\UpdateIngredients\" />

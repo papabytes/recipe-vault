@@ -1,13 +1,5 @@
 ﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:21532",
-      "sslPort": 44391
-    }
-  },
   "profiles": {
     "Papabytes.Portfolio.RecipeVault.API": {
       "commandName": "Project",
@@ -16,15 +8,8 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7088;http://localhost:5132",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POSTGRES_CONNECTION_STRING": "postgresql://user:secret@localhost"
       }
     }
   }

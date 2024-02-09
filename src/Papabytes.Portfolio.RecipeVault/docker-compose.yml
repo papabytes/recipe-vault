@@ -1,0 +1,28 @@
+﻿version: '3.9'
+services:
+  recipe_vault_api:
+    container_name: recipe_vault_api
+    build:
+      dockerfile: ./Papabytes.Portfolio.RecipeVault.API/Dockerfile
+      context: .
+    depends_on: 
+      - postgres
+    ports:
+      - 8080:80
+    
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: example
+  
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    depends_on: 
+      - postgres
+    ports:
+      - 8081:8080
+  

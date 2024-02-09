@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Papabytes.Portfolio.RecipeVault.Domain.Entities;
 using Papabytes.Portfolio.RecipeVault.Domain.Repositories;
+using Papabytes.Portfolio.RecipeVault.Infrastructure.Data;
 
 namespace Papabytes.Portfolio.RecipeVault.Infrastructure.Repositories;
 

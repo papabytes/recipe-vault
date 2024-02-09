@@ -1,7 +1,10 @@
+using AutoMapper;
 using Microsoft.AspNetCore.HttpOverrides;
+using Papabytes.Portfolio.RecipeVault.Application;
+using Papabytes.Portfolio.RecipeVault.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Configuration.AddEnvironmentVariables();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -9,7 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+
 var app = builder.Build();
+var mapper = app.Services.GetService<IMapper>();
+mapper.ConfigurationProvider.AssertConfigurationIsValid();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,7 +35,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseHttpsRedirection();
 
-// TODO improve security here.
 app.UseCors(opts =>
 {
     opts.AllowAnyHeader();

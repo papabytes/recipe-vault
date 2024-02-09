@@ -17,8 +17,10 @@
       </Content>
     </ItemGroup>
 
+
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\Papabytes.Portfolio.RecipeVault.Application\Papabytes.Portfolio.RecipeVault.Application.csproj" />
+      <ProjectReference Include="..\Papabytes.Portfolio.RecipeVault.Infrastructure\Papabytes.Portfolio.RecipeVault.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

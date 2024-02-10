@@ -4,6 +4,6 @@ public class Recipe
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public IEnumerable<Ingredient> Ingredients { get; set; }
-    public IEnumerable<CookingStep> Steps { get; set; }
+    public IList<Ingredient> Ingredients { get; set; }
+    public IList<CookingStep> Steps { get; set; }
 }

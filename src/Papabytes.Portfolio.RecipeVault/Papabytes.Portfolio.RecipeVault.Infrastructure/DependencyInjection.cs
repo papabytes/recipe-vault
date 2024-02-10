@@ -17,10 +17,10 @@ public static class DependencyInjection
         services.AddDbContext<RecipeVaultDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
-
             options.UseNpgsql(connectionString);
         });
 
+        services.AddScoped<RecipeVaultDbContextInitializer>();
         services.AddScoped<IRecipeRepository, RecipePostgresRepository>();
         services.AddScoped<ICookingStepRepository, CookingStepPostgresRepository>();
         services.AddScoped<IIngredientRepository, IngredientPostgresRepository>();

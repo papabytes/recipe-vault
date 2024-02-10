@@ -24,16 +24,17 @@ public class RecipePostgresRepository : IRecipeRepository
             return recipe;
         }
 
-        recipe.Steps = recipe.Steps.OrderBy(s => s.Order);
+        recipe.Steps = recipe.Steps.OrderBy(s => s.Order).ToList();
         return recipe;
     }
 
     public async Task<IEnumerable<Recipe>> SearchAsync(string search)
     {
+        var normalizedSearch = search.ToUpperInvariant();
         var recipes = await _set
             .Include(r => r.Ingredients)
             .Include(r => r.Steps)
-            .Where(r => r.Name.Contains(search))
+            .Where(r => r.Name.ToUpper().Contains(normalizedSearch))
             .ToListAsync();
 
         return recipes;

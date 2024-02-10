@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.HttpOverrides;
 using Papabytes.Portfolio.RecipeVault.Application;
 using Papabytes.Portfolio.RecipeVault.Infrastructure;
+using Papabytes.Portfolio.RecipeVault.Infrastructure.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
@@ -16,9 +17,10 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();
+await app.InitialiseDatabaseAsync();
+
 var mapper = app.Services.GetService<IMapper>();
 mapper.ConfigurationProvider.AssertConfigurationIsValid();
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

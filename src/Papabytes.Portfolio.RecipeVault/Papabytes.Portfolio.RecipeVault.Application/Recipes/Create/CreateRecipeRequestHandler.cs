@@ -29,13 +29,13 @@ public class CreateRecipeRequestHandler : IRequestHandler<CreateRecipeRequest, R
                 Name = i.Name,
                 Quantity = i.Quantity,
                 Unit = i.Unit
-            }),
+            }).ToList(),
             Steps = request.Steps.Select((step, index) =>
                 new CookingStep
                 {
                     Order = index + 1,
                     Description = step.Description,
-                })
+                }).ToList()
         };
 
         var result = await _recipeRepository.CreateAsync(recipeToCreate);

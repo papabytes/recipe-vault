@@ -11,11 +11,6 @@ public class RecipeVaultDbContext : DbContext
     public DbSet<Ingredient> Ingredients { get; set; }
     
     public RecipeVaultDbContext(DbContextOptions<RecipeVaultDbContext> options) : base(options) { }
-
-    public RecipeVaultDbContext()
-    {
-        
-    }
     
     protected override void OnModelCreating(ModelBuilder builder)
     {

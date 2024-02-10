@@ -20,6 +20,6 @@ public class GetRecipeBySearchRequestHandler : IRequestHandler<GetRecipeBySearch
     {
         var repoSearchResults = await _recipeRepository.SearchAsync(request.Search);
 
-        return repoSearchResults.Any() ? new List<RecipeDto>() : _mapper.Map<IEnumerable<RecipeDto>>(repoSearchResults);
+        return !repoSearchResults.Any() ? new List<RecipeDto>() : _mapper.Map<IEnumerable<RecipeDto>>(repoSearchResults);
     }
 }

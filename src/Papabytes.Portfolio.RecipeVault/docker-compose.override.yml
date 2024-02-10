@@ -3,5 +3,5 @@ services:
   recipe_vault_api:
    environment:
      - ASPNETCORE_URLS=http://*:80/
-     - POSTGRES_CONNECTION_STRING=postgresql://postgres:example@postgres
+     - POSTGRES_CONNECTION_STRING=Host=postgres;Database=recipe-vault;Username=postgres;Password=example
     

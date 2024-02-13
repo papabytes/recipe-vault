@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿
+using FluentValidation;
 using MediatR;
+using ValidationException = Papabytes.Portfolio.RecipeVault.Application.Common.Exceptions.ValidationException;
 
 namespace Papabytes.Portfolio.RecipeVault.Application.Common.Behaviors;
 

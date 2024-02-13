@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.OpenApi.Models;
+using Papabytes.Portfolio.RecipeVault.API.Filters;
 using Papabytes.Portfolio.RecipeVault.Application;
 using Papabytes.Portfolio.RecipeVault.Infrastructure;
 using Papabytes.Portfolio.RecipeVault.Infrastructure.Data.Extensions;
@@ -10,7 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opts =>
+{
+    opts.Filters.Add<ApiExceptionFilterAttribute>();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opts =>
@@ -38,6 +42,7 @@ mapper.ConfigurationProvider.AssertConfigurationIsValid();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    await app.SeedDatabaseAsync();
     app.UseSwagger(c =>
     {
         c.RouteTemplate = "/docs/{documentName}/open-api.json";

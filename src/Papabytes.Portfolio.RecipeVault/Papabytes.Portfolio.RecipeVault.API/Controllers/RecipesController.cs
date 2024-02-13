@@ -4,6 +4,7 @@ using Papabytes.Portfolio.RecipeVault.Application.Common.Models;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.Create;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetById;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetBySearch;
+using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetSteps;
 
 namespace Papabytes.Portfolio.RecipeVault.API.Controllers;
 
@@ -45,10 +46,13 @@ public class RecipesController : ControllerBase
     /// <param name="request"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RecipeDto>>> GetRecipesBySearchAsync(
-        GetRecipeBySearchRequest search)
+    public async Task<ActionResult<IEnumerable<RecipeDto>>> GetRecipesBySearchAsync([FromQuery]string search)
     {
-        var result = await _mediator.Send(search);
+        var result = await _mediator.Send(new GetRecipeBySearchRequest
+        {
+            Search = search
+        });
+        
         return Ok(result);
     }
 
@@ -62,5 +66,21 @@ public class RecipesController : ControllerBase
     {
         var result = await _mediator.Send(request);
         return Created($"/api/recipes/{result.Id}", result);
+    }
+
+    /// <summary>
+    ///     Returns the cooking steps for the recipe
+    /// </summary>
+    /// <param name="recipeId"></param>
+    /// <returns></returns>
+    [HttpGet("{recipeId:guid}/steps")]
+    public async Task<ActionResult<IEnumerable<CookingStepDto>>> GetRecipeCookingStepsAsync(Guid recipeId)
+    {
+        var cookingSteps = await _mediator.Send(new GetRecipeStepsRequest
+        {
+            RecipeId = recipeId
+        });
+        
+        return Ok(cookingSteps);
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Papabytes.Portfolio.RecipeVault.Application.Common.Models;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.Create;
+using Papabytes.Portfolio.RecipeVault.Application.Recipes.DeleteById;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetById;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetBySearch;
 using Papabytes.Portfolio.RecipeVault.Application.Recipes.GetSteps;
@@ -82,5 +83,20 @@ public class RecipesController : ControllerBase
         });
         
         return Ok(cookingSteps);
+    }
+
+    /// <summary>
+    ///     Deletes a recipe from its Id
+    /// </summary>
+    /// <param name="recipeId"></param>
+    /// <returns></returns>
+    [HttpDelete("{recipeId:guid}")]
+    public async Task<IActionResult> DeleteRecipeByIdAsync(Guid recipeId)
+    {
+        await _mediator.Send(new DeleteRecipeByIdRequest
+        {
+            RecipeId = recipeId
+        });
+        return NoContent();
     }
 }
